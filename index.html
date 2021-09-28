@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>여름 밤 한강에서.</title>
+	
+	<style type="text/css">
+		
+	@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;}
+
+	body{margin: auto; background: url(off.jpg); margin: 0; background-size: 100%;
+		background-repeat: no-repeat;}
+
+
+	section{margin-top: 20px; margin-bottom: 5px;}
+
+	header{margin-top: 30px;}
+	body, section, img, p{text-align: center; word-break:keep-all; color: white; font-family: 'GmarketSansLight'; font-size: 0.99em; line-height:  1.7; word-spacing: 1px;}
+
+	.flex{display:flex; justify-content: center; margin-top: -10px;}
+		.size30{width: 30%;}
+		.size20{width: 20%;}
+	.container
+	.track{margin-left: 10px; margin-right: 10px;}
+	.p{margin-top: 20px;}
+
+
+
+.slidecontainer {width: 25%; margin: 0 auto; 
+	justify-content: center; align-items: center;}
+		.slider {
+		  -webkit-appearance: none;
+		  width: 50%;
+		  height: 3px;
+		  border-radius: 4px;
+		  background: #FFFFFF;
+		  outline: none;
+		  opacity: 0.8;
+		  -webkit-transition: .2s;
+		  transition: opacity .2s;
+		}
+
+		.slider:hover {
+		  opacity: 1;
+		}
+
+		.slider::-webkit-slider-thumb {
+		  -webkit-appearance: none;
+		  appearance: none;
+		  width: 13px;
+		  height: 18px;
+		  border: 0;
+		  background: url('waterdrop.png');
+		  background-size: cover;
+		  background-repeat: no-repeat;
+		  cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+		  width: 10px;
+		  height: 15px;
+		  border: 0;
+		  background: url('waterdrop.png');
+  		  background-size: cover;
+		  background-repeat: no-repeat;
+		  cursor: pointer;
+		}
+
+	footer{margin-top: 30px;}
+
+	</style>
+</head>
+
+
+<body>
+
+<header>
+	<div>
+	<img src='watersound.png' id='waterBut'>
+	<audio id='waterSnd'src='water.mp3'></audio>
+	</div>
+</header>
+
+<section>
+		<div>
+			<img src='tape.png' class='size30'
+			onmouseover="this.src='tape2.png'" 
+			onmouseout="this.src='tape.png'">
+		</div>
+</section>
+
+<section>
+	<div class = 'flex container'>
+			<div class='track'>
+				<img src='track1.png' id='track1But'>
+				<audio id='track1Snd'src='1.mp3'></audio>
+			</div>
+
+			<div class='track'>
+				<img src='track2.png' id='track2But'>
+				<audio id='track2Snd'src='2.mp3'></audio>
+			</div>
+
+			<div class='track'>
+				<img src='track3.png' id='track3But'>
+				<audio id='track3Snd'src='3.mp3'></audio>
+			</div>
+
+			<div class='track'>
+				<img src='track4.png' id='track4But'>
+				<audio id='track4Snd'src='4.mp3'></audio>
+			</div>
+	</div>	
+</section>
+
+<div class="slidecontainer">
+		<input id="vol" class="slider" type="range" max="100" min="0">
+	</div>
+
+
+
+
+<section class='p'>
+	
+			<p>탁 트인 한강을 보고 있으니까 괜히 청춘을 즐기고 있는 느낌이 들었다<br>
+			우리도 분위기 내보자며 틀었던 노래는 진짜 마지막 곡을 몇 번 듣고서야 끝이 났고<br>
+			우리는 저물어가는 과정을 끝까지 지켜봤다<br>
+			전혀 지루하다는 생각이 들지 않았다<br><br>
+
+			21. 06. 19. 일기 일부</p>
+
+</section>
+
+
+
+<script type="text/javascript">
+
+	var state = true
+
+	waterBut.onclick = function(){
+			if(state){
+				waterSnd.play();
+				state = false;
+				document.body.style.backgroundImage="url('on.jpg')";
+			}else{
+				waterSnd.pause();
+				state = true;
+				document.body.style.backgroundImage="url('off.jpg')";
+			}
+
+      		
+			document.getElementById("waterSnd").loop = true;
+		}
+
+
+	
+	track1But.onclick = function(){
+			if(state){
+				track1Snd.play();
+				state = false;
+			}else{
+				track1Snd.pause();
+				state = true;}
+			}
+
+
+	track2But.onclick = function(){
+			if(state){
+				track2Snd.play();
+				state = false;
+			}else{
+				track2Snd.pause();
+				state = true;}
+			}
+
+		track3But.onclick = function(){
+			if(state){
+				track3Snd.play();
+				state = false;
+			}else{
+				track3Snd.pause();
+				state = true;}
+			}
+
+		track4But.onclick = function(){
+			if(state){
+				track4Snd.play();
+				state = false;
+			}else{
+				track4Snd.pause();
+				state = true;}
+			}
+
+
+vol.value = 50;
+				vol.oninput = function(){
+			waterSnd.volume = vol.value / 100;
+			track1Snd.volume = vol.value / 50;
+			track2Snd.volume = vol.value / 50;
+			track3Snd.volume = vol.value / 50;
+			track4Snd.volume = vol.value / 50;
+		}
+
+
+
+
+
+</script>
+
+
+<footer>
+<img src='footer.png' class = 'size 20'>
+
+</footer>
+
+</body>
+</html>
